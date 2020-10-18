@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from 'react-router-dom';
+import {PersistGate} from 'redux-persist/integration/react';
+
+import {store, persistor} from './redux/Store.js';
+
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+	<Provider store={store}>
+		<BrowserRouter>
+			<PersistGate persistor={persistor} >
+			    <App />
+			</PersistGate>
+		</BrowserRouter>
+	</Provider>,
   document.getElementById('root')
 );
 
