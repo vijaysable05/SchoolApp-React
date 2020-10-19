@@ -11,6 +11,7 @@ import AdminPage from './pages/AdminPage/AdminPage.js';
 import TeacherPage from './pages/TeacherPage/TeacherPage.js';
 import StudentPage from './pages/StudentPage/StudentPage.js';
 import ContactPage from './pages/ContactPage/ContactPage.js';
+import ErrorBoundary from './components/Error-boundary/ErrorBoundary.js';
 
 // import {LogoutSuccess} from './redux/user/UserActions.js';
 
@@ -80,16 +81,18 @@ class App extends React.Component {
 	  return (
 	    <div className="App">
 		    <Switch>
-			    {
-				  this.returnLoader()
-			    }
-			    <Route exact path='/' component={HomePage} />
-			    <Route exact path='/contact' component={ContactPage} />
-			    {
-			      this.protectedRoutes()
-			    }
-			    <Route exact path='/login' render={this.renderPages}/>
-				<Redirect to="/" />
+			    <ErrorBoundary>
+				    {
+					  this.returnLoader()
+				    }
+				    <Route exact path='/' component={HomePage} />
+				    <Route exact path='/contact' component={ContactPage} />
+				    {
+				      this.protectedRoutes()
+				    }
+				    <Route exact path='/login' render={this.renderPages}/>
+					<Redirect to="/" />
+				</ErrorBoundary>
 		    </Switch>
 	    </div>
 	  )
