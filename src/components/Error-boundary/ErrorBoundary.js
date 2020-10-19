@@ -28,7 +28,7 @@ class ErrorBoundary extends React.Component {
 			<ErrorBoundaryContainer>
 			<TitleContainer> <span>Something went Wrong!</span> <span>Please try again later. . .</span></TitleContainer>
 			<ImgContainer>
-				<img src={img} />
+				<img src={img} alt="img"/>
 			</ImgContainer>
 			</ErrorBoundaryContainer>
 			)
