@@ -81,7 +81,6 @@ class App extends React.Component {
 	  return (
 	    <div className="App">
 		    <Switch>
-			    <ErrorBoundary>
 				    {
 					  this.returnLoader()
 				    }
@@ -92,7 +91,6 @@ class App extends React.Component {
 				    }
 				    <Route exact path='/login' render={this.renderPages}/>
 					<Redirect to="/" />
-				</ErrorBoundary>
 		    </Switch>
 	    </div>
 	  )
